@@ -20,6 +20,15 @@ It demonstrates how **AI can revolutionize agriculture** with accessible and aut
 
 ---
 
+## Dataset Access
+
+The turmeric plant leaf disease dataset used in this project is publicly available and free to use. It contains images categorized into classes like **Rhizome Rot**, **Leaf Blotch**, **Dry Leaf**, and **Healthy Leaf**, including both original and augmented images.
+
+**Download Dataset Here:** 
+[**Turmeric Plant Disease Dataset – Mendeley Data**](https://data.mendeley.com/datasets/g46dvrcvwn/1?utm_)  
+
+---
+
 ## How It Works
 
 **Image Upload = Plant Leaf Sample**  
