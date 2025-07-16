@@ -1,0 +1,107 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #d2f1e4, #e4f7f2);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #2f855a;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+form {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.file-label {
+  background: white;
+  color: #2f855a;
+  border: 2px dashed #38a169;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.file-label:hover {
+  background-color: #f0fff4;
+  border-color: #2f855a;
+}
+
+button {
+  background-color: #2f855a;
+  color: white;
+  padding: 12px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #276749;
+}
+
+.result-card {
+  margin-top: 35px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: 0.3s;
+}
+
+.result-card h2 {
+  color: #22543d;
+  margin-bottom: 5px;
+}
+
+.result-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #2d3748;
+}
+
+.result-card ul {
+  margin-left: 20px;
+}
+
+#segmentedImage {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+#segmentedImage:hover {
+  transform: scale(1.01);
+}

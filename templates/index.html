@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turmeric Disease Detector</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🌿 Turmeric Disease Detector</h1>
+    <p>Upload a turmeric plant image to detect the disease, view affected area, and get the best remedy.</p>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label for="fileInput" class="file-label" id="fileLabel">📁 Choose an image</label>
+      <input type="file" name="file" id="fileInput" accept="image/*" required hidden />
+      <button type="submit">🔍 Predict</button>
+    </form>
+
+    <div id="output" class="result-card">
+      <h2>🧠 Prediction:</h2>
+      <p id="predictionText">–</p>
+
+      <h2>💡 Suggested Remedy:</h2>
+      <p id="remedyText">–</p>
+
+      <h2>🖼️ Segmented Image:</h2>
+      <img id="segmentedImage" src="" alt="Segmented" />
+    </div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const fileLabel = document.getElementById("fileLabel");
+
+    fileLabel.addEventListener("click", () => fileInput.click());
+
+    fileInput.addEventListener("change", () => {
+      const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : "📁 Choose an image";
+      fileLabel.textContent = `✅ Selected: ${fileName}`;
+    });
+
+    const form = document.getElementById("uploadForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      const res = await fetch("/predict", { method: "POST", body: formData });
+      const data = await res.json();
+
+      document.getElementById("predictionText").textContent = data.prediction;
+      document.getElementById("remedyText").innerHTML = data.remedy;
+      const img = document.getElementById("segmentedImage");
+      img.src = `/static/${data.segmented_path}`;
+      img.style.display = "block";
+    });
+  </script>
+</body>
+</html>
